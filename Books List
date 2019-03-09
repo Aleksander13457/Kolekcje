@@ -1,0 +1,44 @@
+import java.util.LinkedList;
+
+public class ListOfBook {
+    private String title;
+    private int yearOfPublishing;
+
+    public ListOfBook(String title, int yearOfPublishing) {
+        this.title = title;
+        this.yearOfPublishing = yearOfPublishing;
+    }
+
+    public int getYearOfPublishing() {
+        return yearOfPublishing;
+    }
+
+    @Override
+    public String toString() {
+        return "ListOfBook{" +
+                "title='" + title + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
+                '}';
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        ListOfBook book1 = new ListOfBook("xxxxx", 1975);
+        ListOfBook book2 = new ListOfBook("zzzzzz", 1990);
+        ListOfBook book3 = new ListOfBook("vvvvvvv", 1995);
+        ListOfBook book4 = new ListOfBook("qqqqqq", 1998);
+
+        LinkedList<ListOfBook> booksList = new LinkedList<>();
+        booksList.add(book1);
+        booksList.add(book2);
+        booksList.add(book3);
+        booksList.add(book4);
+
+        for (ListOfBook book : booksList) {
+            if (book.getYearOfPublishing() <= 1994) {
+                System.out.println(book);
+            }
+        }
+    }
+}
