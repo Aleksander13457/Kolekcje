@@ -1,0 +1,16 @@
+class LinkedListExample
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		
+		LinkedList<Integer> theList = new LinkedList<Integer>();
+		for(int n = 0; n < 1000; n++){
+			theList.add(n*2);
+		}
+		
+		System.out.println("List element at index 760 equals: " + theList.get(760));
+		theList.add(760, 500);		
+		System.out.println("List element at index 760 equals: " + theList.get(760));
+		System.out.println("List size (after addition of 1 element) equals: " + theList.size());
+	}
+}
