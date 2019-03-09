@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ListOfMarks {
+    public static void main(String[] args) {
+        ArrayList<Integer> marksList = new ArrayList<>();
+        marksList.add(3);
+        marksList.add(3);
+        marksList.add(4);
+        marksList.add(4);
+        marksList.add(4);
+        marksList.add(5);
+        marksList.add(5);
+        marksList.add(5);
+        marksList.add(6);
+        Collections.sort(marksList);
+        marksList.remove(0);
+        marksList.remove(marksList.size() - 1);
+        double sum = 0;
+        for (Integer integer : marksList) {
+            sum = sum + integer;
+        }
+        String result = (String.format("%.1f", sum / marksList.size()));
+        System.out.println("średnia ocen wynosi " + result);
+    }
+}
