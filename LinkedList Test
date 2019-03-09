@@ -1,0 +1,22 @@
+import java.util.LinkedList;
+
+class LinkedListTest
+{
+    public static void main (String[] args)
+    {
+        LinkedList<String> list = new LinkedList<String>();
+        list.add(0, "Zero");
+        list.add(1, "One");
+        list.add(2, "Two");
+        list.add(3, "Three");
+        list.add(4, "Four");
+        list.add(5, "Five");
+        list.add(6, "Six");
+        list.add(7, "Seven");
+        list.add(8, "Eight");
+        list.add(9, "Nine");
+        list.add(10, "Ten");
+
+        System.out.println("Element list(7) = " + list.get(7));
+    }
+}
