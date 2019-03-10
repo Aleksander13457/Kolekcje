@@ -1,0 +1,63 @@
+import java.util.HashSet;
+import java.util.Objects;
+
+public class Books {
+    String title;
+    String author;
+    int yearOfPublishing;
+
+    public Books(String title, String author, int yearOfPublishing) {
+        this.title = title;
+        this.author = author;
+        this.yearOfPublishing = yearOfPublishing;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Books books = (Books) o;
+        return yearOfPublishing == books.yearOfPublishing &&
+                Objects.equals(title, books.title) &&
+                Objects.equals(author, books.author);
+    }
+
+    @Override
+    public int hashCode() {
+        return yearOfPublishing;
+    }
+
+    public int getYearOfPublishing() {
+        return yearOfPublishing;
+    }
+
+    @Override
+    public String toString() {
+        return "Books{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
+                '}';
+    }
+}
+
+class App{
+    public static void main(String[] args) {
+        Books books = new Books("aaa","ssss",1980);
+        Books books1 = new Books("zzz","xxxx",1985);
+        Books books2 = new Books("ddd","ffff",1988);
+        Books books3 = new Books("jjj","kkkk",1990);
+
+        HashSet<Books>booksList = new HashSet<>();
+        booksList.add(books);
+        booksList.add(books1);
+        booksList.add(books2);
+        booksList.add(books3);
+
+        for (Books book : booksList) {
+            if (book.getYearOfPublishing()<1990){
+                System.out.println(book);
+            }
+        }
+    }
+}
