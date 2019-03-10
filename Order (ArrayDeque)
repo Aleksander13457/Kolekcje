@@ -1,0 +1,68 @@
+/* package whatever; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.time.*;
+
+class Book{
+	String title;
+	String author;
+	int year;
+
+	public Book(String title, String author, int year){
+		this.title = title;
+		this.author = author;
+		this.year = year;
+	}
+	
+	public String toString(){
+		return "Title: \"" + title + "\", author: " + author + ", (" + year + ")";
+	}
+	
+	public String  getTitle(){
+		return title;
+	}
+	
+	public String getAuthor(){
+		return author;
+	}
+	
+	public int getYear(){
+		return year;
+	}
+}
+
+class Order{
+	Book book;
+	LocalDate dateOfOrder;
+	
+	public Order(Book book, int year, int month, int day){
+		this.book = book;
+		this.dateOfOrder = LocalDate.of(year, month, day);
+	}
+	
+	public String toString(){
+		return "Order created: " + dateOfOrder + "\n" +
+		       " ordered book: " + book;
+		
+	}
+
+	public Book getBook(){
+		return book;
+	}
+	
+	public LocalDate getDateOfOrder(){
+		return dateOfOrder;
+	}
+}
+
+class OrdersQueueExample
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Book theBook = new Book("Assassins' Creed the Book", "William Shakespeare", 2016);
+		Order theOrder = new Order(theBook, 2017, 6, 30);
+		System.out.println(theOrder);
+	}
+}
