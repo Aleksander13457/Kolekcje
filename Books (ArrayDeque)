@@ -1,0 +1,47 @@
+import java.util.ArrayDeque;
+
+public class Book {
+    String title;
+    String author;
+    int yearOfPublishing;
+
+    public Book(String title, String author, int yearOfPublishing) {
+        this.title = title;
+        this.author = author;
+        this.yearOfPublishing = yearOfPublishing;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", yearOfPublishing=" + yearOfPublishing +
+                '}';
+    }
+}
+
+class OrderBook {
+    public static void main(String[] args) {
+
+        Book book = new Book("aaa", "ssss", 1980);
+        Book book1 = new Book("zzz", "xxxx", 1985);
+        Book book2 = new Book("ddd", "ffff", 1988);
+        Book book3 = new Book("jjj", "kkkk", 1990);
+
+        ArrayDeque<Book> bookArrayDeque = new ArrayDeque<>();
+        bookArrayDeque.push(book);
+        bookArrayDeque.push(book1);
+        bookArrayDeque.push(book2);
+        bookArrayDeque.push(book3);
+
+        System.out.println("Rozmiar stosu " + bookArrayDeque.size());
+        Book remove = bookArrayDeque.pop();
+        remove = bookArrayDeque.pop();
+        remove = bookArrayDeque.pop();
+        remove = bookArrayDeque.pop();
+        System.out.println("Usunięto wszystko " + bookArrayDeque.size());
+        System.out.println("Ostatnia usunięta książka to " + remove);
+
+    }
+}
