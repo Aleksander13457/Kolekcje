@@ -1,0 +1,18 @@
+import java.util.Random;
+
+public class Sum {
+    public static void main(String[] args) {
+        int sumaA = 100;
+        int sumaB = 0;
+        Random random = new Random();
+        int counter = 0;
+        while (sumaA > sumaB) {
+            counter++;
+            sumaA = random.nextInt(10) + sumaA;
+            sumaB = random.nextInt(50) + sumaB;
+            System.out.println("sumaA wynosi " + sumaA + " sumaB wynosi " + sumaB);
+            System.out.println("Przebieg pętli numer " + counter);
+        }
+        System.out.println("Warunek został spełniony");
+    }
+}
