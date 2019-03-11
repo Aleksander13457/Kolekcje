@@ -1,0 +1,31 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class ArrayTester{
+	
+	public void printEven(ArrayList<Integer> theList){
+		int temporaryValue = 0;
+		for (int n=0; n<theList.size(); n++){
+			temporaryValue = theList.get(n);
+			if (temporaryValue % 2 == 0){
+				System.out.println(temporaryValue);
+			}
+		}
+	}
+}
+	
+class CollectionAsParameter
+{
+	public static void main (String[] args) 
+	{
+		
+		ArrayList<Integer> theBigList = new ArrayList<Integer>();
+		Random theGenerator = new Random();
+		for(int n=0; n<200; n++){
+			theBigList.add(theGenerator.nextInt(100));
+		}
+		ArrayTester tester = new ArrayTester();
+		tester.printEven(theBigList);
+	}
+}
