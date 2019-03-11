@@ -1,0 +1,18 @@
+import java.util.*;
+
+class WhileLoopTest {
+
+    public static void main(String[] args) {
+        boolean loggedIn = false;
+        int tryCounter = 0;
+        Random randomGenerator = new Random();
+        while (!loggedIn){
+            tryCounter++;
+            System.out.println("Waiting for the User to sign in : [attempt # " + tryCounter + "]");
+            if (randomGenerator.nextInt(100) > 90) {
+                loggedIn = true;
+            };
+        }
+        System.out.println("User logged in!");
+    }
+}
