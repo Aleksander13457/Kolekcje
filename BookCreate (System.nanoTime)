@@ -1,0 +1,84 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Objects;
+
+class Book12 {
+    String author;
+    String title;
+
+    public Book12(String author, String title) {
+        this.author = author;
+        this.title = title;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book12 book1 = (Book12) o;
+        return Objects.equals(author, book1.author) &&
+                Objects.equals(title, book1.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(author, title);
+    }
+}
+
+class BookCreate {
+    public static void main(String[] args) {
+        Book12 book1 = new Book12("aaa", "ssss");
+        Book12 book2 = new Book12("zzz", "xxxx");
+        Book12 book3 = new Book12("qqq", "wwww");
+        Book12 book4 = new Book12("rrrr", "tttt");
+        Book12 book5 = new Book12("ggg", "hhhh");
+        Book12 book6 = new Book12("bbbb", "cccc");
+        Book12 book7 = new Book12("lll", "kkkk");
+
+        LinkedList<Book12> book12LinkedList = new LinkedList<>();
+        book12LinkedList.add(book1);
+        book12LinkedList.add(book2);
+        book12LinkedList.add(book3);
+        book12LinkedList.add(book4);
+        book12LinkedList.add(book5);
+        book12LinkedList.add(book6);
+        book12LinkedList.add(book7);
+
+        long begin = System.nanoTime();
+        book12LinkedList.remove(book1);
+        long end = System.nanoTime();
+        System.out.println("Czas potrzebny do usunięcia książki z indeksu 0 wynosi " + (end - begin) + " ns");
+
+        begin = System.nanoTime();
+        book12LinkedList.remove(book12LinkedList.size() - 1);
+        end = System.nanoTime();
+        System.out.println("Czas potrzebny do usunięcia książki z z ostatniej pozycji wynosi " + (end - begin) + " ns");
+
+        HashMap<Integer, Integer> integerIntegerHashMap = new HashMap<>();
+
+        for (int i = 0; i < 100000; i++) {
+            integerIntegerHashMap.put(i, i + 2);
+        }
+
+        begin = System.nanoTime();
+        integerIntegerHashMap.remove(1);
+        end = System.nanoTime();
+        System.out.println("Czas potrzebny do usunięcia elementu z pierwszej pozycji wynosi " + (end - begin) + " ns");
+
+        begin = System.nanoTime();
+        integerIntegerHashMap.remove(integerIntegerHashMap.size() - 1);
+        end = System.nanoTime();
+        System.out.println("Czas potrzebny do usunięcia elementu z ostatniej pozycji wynosi " + (end - begin) + " ns");
+
+        begin = System.nanoTime();
+        integerIntegerHashMap.containsKey(5);
+        end = System.nanoTime();
+        System.out.println("Czas wyszukania po kluczu: " + (end - begin));
+
+        begin = System.nanoTime();
+        integerIntegerHashMap.put(100001, 5);
+        end = System.nanoTime();
+        System.out.println("Czas dodania obiektu do mapy: " + (end - begin));
+    }
+}
