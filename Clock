@@ -1,0 +1,29 @@
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
+
+class Clock {
+
+    public static void main(String[] args) {
+
+        DateTimeFormatter timeFormatter1 = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime localTime1 = LocalTime.now();
+        LocalTime localTime2 = LocalTime.of(15, 59, 45);
+
+        System.out.println(localTime1.format(timeFormatter1) + " rzeczywista godzina");
+        System.out.println(localTime2 + " godzina ustawiona");
+
+        LinkedList<LocalTime> clocksList = new LinkedList<>();
+        clocksList.add(localTime1);
+        clocksList.add(localTime2);
+
+        
+        System.out.println("xxxx plus 1 minuta do obu godzin xxxx");
+
+        for (LocalTime time : clocksList) {
+            LocalTime plusMinutes = time;
+            plusMinutes = time.plusMinutes(1);
+            System.out.println(plusMinutes.format(timeFormatter1));
+        }
+    }
+}
