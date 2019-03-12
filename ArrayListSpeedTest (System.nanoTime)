@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+class ArrayListSpeedTest
+{
+    public static void main (String[] args) 
+    {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int n = 0; n < 8000000; n++) {
+            list.add(n);
+        }
+
+        System.out.println("Quantity of elements in the collection: " + list.size());
+
+        long begin = System.nanoTime();
+        list.add(list.size());
+        long end = System.nanoTime();
+
+        System.out.println("Adding element at the od of the collection has taken: " + (end - begin) + "ns");
+
+        begin = System.nanoTime();
+        list.add(0);
+        end = System.nanoTime();
+
+        System.out.println("Adding element at the beginning of the collection has taken: " + (end - begin) + "ns");
+    }
+}
