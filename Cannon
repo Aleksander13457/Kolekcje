@@ -1,0 +1,55 @@
+import java.util.LinkedList;
+
+public class Cannon {
+    boolean loaded;
+
+    public Cannon(boolean loaded) {
+        this.loaded = loaded;
+    }
+
+    String fire() {
+        if (!loaded) {
+            return "Kuli nie ma armacie";
+        } else {
+            return "Kula jest w armacie";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Cannon{" +
+                "loaded=" + loaded +
+                '}';
+    }
+}
+
+class Program {
+    public static void main(String[] args) {
+        Cannon cannon1 = new Cannon(false);
+        Cannon cannon2 = new Cannon(false);
+        Cannon cannon3 = new Cannon(false);
+        Cannon cannon4 = new Cannon(true);
+        System.out.println(cannon1 + " " + cannon1.fire());
+        System.out.println(cannon2 + " " + cannon2.fire());
+        System.out.println(cannon3 + " " + cannon3.fire());
+        System.out.println(cannon4 + " " + cannon4.fire());
+
+
+        LinkedList<Cannon> cannonLinkedList = new LinkedList<>();
+        cannonLinkedList.add(cannon1);
+        cannonLinkedList.add(cannon2);
+        cannonLinkedList.add(cannon3);
+        cannonLinkedList.add(cannon4);
+        int counter = 0;
+        for (Cannon cannon : cannonLinkedList) {
+            if (cannon.loaded == false) {
+                cannon.loaded = true;
+                counter++;
+            } else {
+                counter++;
+            }
+
+        }
+        System.out.println("Wszystkie kule znajdują sie w " + counter + " armatach " + cannonLinkedList);
+    }
+}
